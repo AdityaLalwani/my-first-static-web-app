@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "fbc4f399e817f50216eee49aac2f365c",
+  "assets/AssetManifest.json": "d9faf6cdb59b9a647e4d18faf2209831",
 "assets/assets/fonts/OpenSans-ExtraBold.ttf": "fb7e3a294cb07a54605a8bb27f0cd528",
 "assets/assets/fonts/OpenSans-Regular.ttf": "3ed9575dcc488c3e3a5bd66620bdf5a4",
 "assets/assets/images/avi.png": "c3a2e9490a25a0f7f02f001ad2f4ba8a",
@@ -14,10 +14,11 @@ const RESOURCES = {
 "assets/assets/images/portapp.png": "5107631266065ee86f520690789c525e",
 "assets/assets/images/portfolio.png": "97821a136d65a141040d36897ce24b97",
 "assets/assets/images/Programmer.png": "859afb7ab5d270cf40f1fe19115a945f",
+"assets/assets/images/sketchtoface.png": "636f95b498d523e5ee7459c609844ee6",
 "assets/assets/images/tesla.png": "71799333a987ace57f7456d436b3551f",
 "assets/FontManifest.json": "cd60659878a00edd01e9c4db747bf319",
-"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "89124394ff8ceaa276908980123bc340",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"assets/NOTICES": "8ef0bc4ad7501e91df5574973738dcfb",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "assets/packages/flutter_icons/fonts/AntDesign.ttf": "3a2ba31570920eeb9b1d217cabe58315",
 "assets/packages/flutter_icons/fonts/Entypo.ttf": "744ce60078c17d86006dd0edabcd59a7",
@@ -41,9 +42,9 @@ const RESOURCES = {
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "9e12ce211d3526e2db8f885c29d1ec7f",
-"/": "9e12ce211d3526e2db8f885c29d1ec7f",
-"main.dart.js": "312df547cc2aa7c4610bfbd458e25110",
+"index.html": "fdacd8c63ca61bddb95ffcb3af40b778",
+"/": "fdacd8c63ca61bddb95ffcb3af40b778",
+"main.dart.js": "bdb66fc1755703d2a9eaee2792691029",
 "manifest.json": "5a2c0526f1fe73e6f211bc7a9d15c210",
 "version.json": "426313f2f3133c2f20415344c4a22df3"
 };
@@ -63,7 +64,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });
@@ -189,7 +190,7 @@ async function downloadOffline() {
     }
     currentContent[key] = true;
   }
-  for (var resourceKey in Object.keys(RESOURCES)) {
+  for (var resourceKey of Object.keys(RESOURCES)) {
     if (!currentContent[resourceKey]) {
       resources.push(resourceKey);
     }
