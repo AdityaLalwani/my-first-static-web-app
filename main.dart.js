@@ -55834,7 +55834,7 @@ p.f=new V.dc(b.H(t.w).f).gdP()===C.a8?15:20
 p.c=C.M
 s=T.hw(p.cc(),C.al)
 q=t.t
-return T.eH(K.d9(20),M.aD(r,B.eh(!0,H.b([new T.bT(C.bO,new T.ci(C.aM,r,r,s,r),r),new T.a8(r,20,r,r),N.oI(85,170,"Android\nFlutter"),T.mV(T.Ga(C.bC,H.b([N.oI(61,150,"Java"),N.oI(80,150,"Html/Css\n/php"),N.oI(65,150,"JavaScript")],q)),r,r),T.mV(T.Ga(C.bC,H.b([N.oI(75,150,"Machine Learning"),N.oI(80,150,"MySQL"),N.oI(75,150,"Network")],q)),r,r)],q),new L.fr(r)),C.i,new P.t(4278851887),r,r,r,600,r,r,r,r,r,600))}}
+return T.eH(K.d9(20),M.aD(r,B.eh(!0,H.b([new T.bT(C.bO,new T.ci(C.aM,r,r,s,r),r),new T.a8(r,20,r,r),N.oI(85,170,"Android\nFlutter"),T.mV(T.Ga(C.bC,H.b([N.oI(60,150,"Java"),N.oI(80,150,"Html/Css\n/php"),N.oI(65,150,"JavaScript")],q)),r,r),T.mV(T.Ga(C.bC,H.b([N.oI(75,150,"Machine Learning"),N.oI(80,150,"MySQL"),N.oI(75,150,"Network")],q)),r,r)],q),new L.fr(r)),C.i,new P.t(4278851887),r,r,r,600,r,r,r,r,r,600))}}
 N.v5.prototype={
 aA:function(){return new N.xu(C.n)},
 sak:function(a,b){return this.e=b}}
@@ -55852,7 +55852,7 @@ p.f=new V.dc(b.H(t.w).f).gdP()===C.a8?15:20
 p.c=C.M
 s=T.hw(p.cc(),C.al)
 q=t.t
-return T.eH(K.d9(20),M.aD(r,B.eh(!0,H.b([new T.bT(C.bO,new T.ci(C.aM,r,r,s,r),r),new T.a8(r,40,r,r),A.oH(85,170,"Android\nFlutter"),T.mV(T.Ga(C.bC,H.b([A.oH(61,150,"Java"),A.oH(80,150,"Html/Css\n/php"),A.oH(65,150,"JavaScript"),A.oH(75,150,"Machine Learning"),A.oH(80,150,"MySQL"),A.oH(75,150,"Network")],q)),r,r)],q),new L.fr(r)),C.i,new P.t(4278851887),r,r,r,700,r,r,r,r,r,600))}}
+return T.eH(K.d9(20),M.aD(r,B.eh(!0,H.b([new T.bT(C.bO,new T.ci(C.aM,r,r,s,r),r),new T.a8(r,40,r,r),A.oH(85,170,"Android\nFlutter"),T.mV(T.Ga(C.bC,H.b([A.oH(60,150,"Java"),A.oH(80,150,"Html/Css\n/php"),A.oH(65,150,"JavaScript"),A.oH(75,150,"Machine Learning"),A.oH(80,150,"MySQL"),A.oH(75,150,"Network")],q)),r,r)],q),new L.fr(r)),C.i,new P.t(4278851887),r,r,r,700,r,r,r,r,r,600))}}
 A.v4.prototype={
 aA:function(){return new A.xt(C.n)},
 sak:function(a,b){return this.e=b}}
