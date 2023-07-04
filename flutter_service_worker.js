@@ -3,7 +3,8 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "d9faf6cdb59b9a647e4d18faf2209831",
+  "assets/AssetManifest.json": "fb72d5c94bab731d9687e2ade7c67349",
+"assets/assets/data.json": "c25c80160e39c911daf6af937619d16d",
 "assets/assets/fonts/OpenSans-ExtraBold.ttf": "fb7e3a294cb07a54605a8bb27f0cd528",
 "assets/assets/fonts/OpenSans-Regular.ttf": "3ed9575dcc488c3e3a5bd66620bdf5a4",
 "assets/assets/images/avi.png": "c3a2e9490a25a0f7f02f001ad2f4ba8a",
@@ -15,11 +16,13 @@ const RESOURCES = {
 "assets/assets/images/portfolio.png": "97821a136d65a141040d36897ce24b97",
 "assets/assets/images/Programmer.png": "859afb7ab5d270cf40f1fe19115a945f",
 "assets/assets/images/sketchtoface.png": "636f95b498d523e5ee7459c609844ee6",
+"assets/assets/images/StockP.png": "47e7fcc9cbea1ea5a6e984b60136b44e",
 "assets/assets/images/tesla.png": "71799333a987ace57f7456d436b3551f",
+"assets/assets/images/trailhead-white.png": "3dacb7daf78ea8294beba2108bf6892f",
 "assets/FontManifest.json": "cd60659878a00edd01e9c4db747bf319",
-"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/NOTICES": "8ef0bc4ad7501e91df5574973738dcfb",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
+"assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
+"assets/NOTICES": "7f0072a6a1acdfeab9bd0ffde80b2ff6",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/flutter_icons/fonts/AntDesign.ttf": "3a2ba31570920eeb9b1d217cabe58315",
 "assets/packages/flutter_icons/fonts/Entypo.ttf": "744ce60078c17d86006dd0edabcd59a7",
 "assets/packages/flutter_icons/fonts/EvilIcons.ttf": "140c53a7643ea949007aa9a282153849",
@@ -39,23 +42,22 @@ const RESOURCES = {
 "assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf": "831eb40a2d76095849ba4aecd4340f19",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-regular-400.ttf": "a126c025bab9a1b4d8ac5534af76a208",
 "assets/packages/font_awesome_flutter/lib/fonts/fa-solid-900.ttf": "d80ca32233940ebadc5ae5372ccd67f9",
+"assets/shaders/ink_sparkle.frag": "aa09d37dc75692d1d2f35a50f572dee2",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "b015bb760a522b9f984625f084203ea6",
-"/": "b015bb760a522b9f984625f084203ea6",
-"main.dart.js": "36aae4ea48dc8d5d556f5fdf454962f2",
+"index.html": "24d9e5b26dda9e32363ff8b902741be9",
+"/": "24d9e5b26dda9e32363ff8b902741be9",
+"main.dart.js": "dd997028e41e146fb7468affb8e9ed66",
 "manifest.json": "5a2c0526f1fe73e6f211bc7a9d15c210",
-"version.json": "426313f2f3133c2f20415344c4a22df3"
+"version.json": "009c9e65172e010890f7f65fde438006"
 };
 
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/",
-"main.dart.js",
+  "main.dart.js",
 "index.html",
-"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 // During install, the TEMP cache is populated with the application shell files.
@@ -154,9 +156,11 @@ self.addEventListener("fetch", (event) => {
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache.
+        // lazily populate the cache only if the resource was successfully fetched.
         return response || fetch(event.request).then((response) => {
-          cache.put(event.request, response.clone());
+          if (response && Boolean(response.ok)) {
+            cache.put(event.request, response.clone());
+          }
           return response;
         });
       })
